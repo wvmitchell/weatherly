@@ -8,6 +8,10 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.containers.HomePage.header',
-    defaultMessage: 'This is HomePage container !',
+    defaultMessage: 'What\'s the weather like where you are?',
+  },
+  secondHeader: {
+    id: 'app.containers.HomePage.secondHeader',
+    defaultMessage: 'Here\'s what to expect for the next few days:',
   },
 });

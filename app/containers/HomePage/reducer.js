@@ -6,15 +6,24 @@
 
 import { fromJS } from 'immutable';
 import {
-  DEFAULT_ACTION,
+  ADD_LOCATION,
+  ADD_CONDITIONS,
+  ADD_FORECAST,
+  ADD_QUERY_RESULTS,
 } from './constants';
 
 const initialState = fromJS({});
 
 function homePageReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case ADD_LOCATION:
+      return state.set('location', action.location);
+    case ADD_CONDITIONS:
+      return state.set('conditions', action.conditions);
+    case ADD_FORECAST:
+      return state.set('forecast', action.forecast);
+    case ADD_QUERY_RESULTS:
+      return state.set('results', action.results);
     default:
       return state;
   }

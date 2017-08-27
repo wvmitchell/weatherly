@@ -12,6 +12,19 @@
  */
 
 import React from 'react';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import createPalette from 'material-ui/styles/palette';
+import { green, lightBlue, red } from 'material-ui/colors';
+
+const theme = createMuiTheme({
+  palette: createPalette({
+    primary: green,
+    accent: {
+      ...lightBlue,
+    },
+    error: red,
+  }),
+});
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -21,9 +34,11 @@ export default class App extends React.PureComponent { // eslint-disable-line re
 
   render() {
     return (
-      <div>
-        {React.Children.toArray(this.props.children)}
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <div>
+          {React.Children.toArray(this.props.children)}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

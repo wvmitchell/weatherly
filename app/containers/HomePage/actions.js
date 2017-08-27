@@ -5,11 +5,43 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  ADD_LOCATION,
+  SUBMIT_LOCATION,
+  ADD_CONDITIONS,
+  ADD_FORECAST,
+  ADD_QUERY_RESULTS,
 } from './constants';
 
-export function defaultAction() {
+export function addLocation(location) {
   return {
-    type: DEFAULT_ACTION,
+    type: ADD_LOCATION,
+    location,
+  };
+}
+
+export function submitLocation() {
+  return {
+    type: SUBMIT_LOCATION,
+  };
+}
+
+export function addConditions(conditions) {
+  return {
+    type: ADD_CONDITIONS,
+    conditions,
+  };
+}
+
+export function addForecast(forecast) {
+  return {
+    type: ADD_FORECAST,
+    forecast,
+  };
+}
+
+export function addQueryResults(results) {
+  return {
+    type: ADD_QUERY_RESULTS,
+    results,
   };
 }
