@@ -22,4 +22,16 @@ export default styled.div`
     margin: 20px auto;
     width: 345px;
   }
+
+  .three-day-forecast {
+    margin: 0 auto;
+    width: 1155px;
+  }
+
+  .upcoming-weather {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+    width: 345px;
+  }
 `

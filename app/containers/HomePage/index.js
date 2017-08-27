@@ -22,7 +22,7 @@ import Card, {
   CardMedia,
   CardContent,
 } from 'material-ui/Card';
-import ForecastCard from 'components/ForecastCard';
+import ForecastCard from './components/ForecastCard';
 import makeSelectHomePage, {
   makeSelectLocation,
   makeSelectConditions,
@@ -93,21 +93,21 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 subheader={this.getTempExtremesString(this.props.forecast, 0)}
               />
               <CardContent>
-                <Typography type="headline">
+                <Typography type="headline" component="h3">
                   Currently
                 </Typography>
                 <Typography type="body1">
                   {this.props.conditions.weather}, {this.props.conditions.temperature_string}
                 </Typography>
                 <br />
-                <Typography type="headline">
+                <Typography type="headline" component="h3">
                   Today
                 </Typography>
                 <Typography type="body1">
                   {this.props.forecast.txt.forecastday[0].fcttext}
                 </Typography>
                 <br />
-                <Typography type="headline">
+                <Typography type="headline" component="h3">
                   Tonight
                 </Typography>
                 <Typography type="body1">
@@ -115,24 +115,27 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 </Typography>
               </CardContent>
             </Card>
+            <br />
             <Typography type="display2" component="h2">
               <FormattedMessage {...messages.secondHeader} />
             </Typography>
-            <ForecastCard
-              forecast={this.props.forecast}
-              day={2}
-              night={3}
-            />
-            <ForecastCard
-              forecast={this.props.forecast}
-              day={4}
-              night={5}
-            />
-            <ForecastCard
-              forecast={this.props.forecast}
-              day={6}
-              night={7}
-            />
+            <div className='three-day-forecast'>
+              <ForecastCard
+                forecast={this.props.forecast}
+                getTempExtremesString={this.getTempExtremesString}
+                day={1}
+              />
+              <ForecastCard
+                forecast={this.props.forecast}
+                getTempExtremesString={this.getTempExtremesString}
+                day={2}
+              />
+              <ForecastCard
+                forecast={this.props.forecast}
+                getTempExtremesString={this.getTempExtremesString}
+                day={3}
+              />
+            </div>
           </div>
         }
       </HomePageWrapper>
