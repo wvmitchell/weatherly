@@ -3,6 +3,7 @@ import makeSelectHomePage, {
   makeSelectLocation, 
   makeSelectConditions, 
   makeSelectForecast,
+  makeSelectResults,
 } from '../selectors';
 
 describe('makeSelectHomePageDomain', () => {
@@ -16,6 +17,11 @@ describe('makeSelectHomePageDomain', () => {
         high: 'real high',
         low: 'very low',
       },
+      results: [
+        0: {
+          name: 'some-place',
+        },
+      ],
     },
   })
 
@@ -32,6 +38,11 @@ describe('makeSelectHomePageDomain', () => {
           high: 'real high',
           low: 'very low',
         },
+        results: [
+          0: {
+            name: 'some-place',
+          },
+        ],
       };
 
       expect(selector(mocked)).toEqual(expected)
@@ -57,5 +68,12 @@ describe('makeSelectHomePageDomain', () => {
 
     const expected = fromJS({ high: 'real high', low: 'very low' });
     expect(selector(mocked)).toEqual(expected);
+  })
+
+  describe('makeSelectResults', () => {
+    const selector = makeSelectResults();
+
+    const expected = fromJS([0: { name: 'some-place' }])
+    expect(selector(mocked)).toEqual(expected)
   })
 });

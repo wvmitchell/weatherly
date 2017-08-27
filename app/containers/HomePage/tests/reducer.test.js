@@ -6,6 +6,9 @@ import {
   addConditions,
   addForecast,
   addQueryResults,
+  clearQueryResults,
+  clearConditions,
+  clearForecast,
 } from '../actions';
 
 describe('homePageReducer', () => {
@@ -47,5 +50,26 @@ describe('homePageReducer', () => {
     })
 
     expect(homePageReducer(undefined, addQueryResults(results))).toEqual(expected)
+  })
+
+  it('clears the query results', () => {
+    const results = fromJS([{location: 'denver'}, {location: 'boulder'}])
+
+    const expected = fromJS({})
+    expect(homePageReducer(fromJS({ results }), clearQueryResults())).toEqual(expected)
+  })
+
+  it('clears the conditions', () => {
+    const conditions = fromJS({ temp: 'some-temp' })
+
+    const expected = fromJS({})
+    expect(homePageReducer(fromJS({ conditions }), clearConditions())).toEqual(expected)
+  })
+
+  it('clears the forecast', () => {
+    const forecast = fromJS({ high: 'some-temp' })
+
+    const expected = fromJS({})
+    expect(homePageReducer(fromJS({ forecast }), clearForecast())).toEqual(expected)
   })
 });

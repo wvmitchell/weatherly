@@ -5,6 +5,9 @@ import {
   addConditions,
   addForecast,
   addQueryResults,
+  clearQueryResults,
+  clearConditions,
+  clearForecast,
 } from '../actions';
 import {
   ADD_LOCATION,
@@ -12,6 +15,9 @@ import {
   ADD_CONDITIONS,
   ADD_FORECAST,
   ADD_QUERY_RESULTS,
+  CLEAR_QUERY_RESULTS,
+  CLEAR_CONDITIONS,
+  CLEAR_FORECAST,
 } from '../constants';
 
 describe('HomePage actions', () => {
@@ -90,6 +96,48 @@ describe('HomePage actions', () => {
       }
 
       expect(addQueryResults(results)).toEqual(expected)
+    })
+  })
+
+  describe('clearQueryResults Action', () => {
+    it('has a constant', () => {
+      expect(CLEAR_QUERY_RESULTS).toBeDefined()
+    })
+
+    it('has a type of CLEAR_QUERY_RESULTS', () => {
+      const expected = {
+        type: CLEAR_QUERY_RESULTS,
+      }
+
+      expect(clearQueryResults()).toEqual(expected)
+    })
+  })
+
+  describe('clearConditions Action', () => {
+    it('has a constant', () => {
+      expect(CLEAR_CONDITIONS).toBeDefined()
+    })
+
+    it('has a type of CLEAR_CONDITIONS', () => {
+      const expected = {
+        type: CLEAR_CONDITIONS,
+      }
+
+      expect(clearConditions()).toEqual(expected)
+    })
+  })
+
+  describe('clearForecast Action', () => {
+    it('has a constant', () => {
+      expect(CLEAR_FORECAST).toBeDefined()
+    })
+
+    it('has a type of CLEAR_FORECAST', () => {
+      const expected = {
+        type: CLEAR_FORECAST,
+      }
+
+      expect(clearForecast()).toEqual(expected)
     })
   })
 });

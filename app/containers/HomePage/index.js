@@ -27,11 +27,15 @@ import makeSelectHomePage, {
   makeSelectLocation,
   makeSelectConditions,
   makeSelectForecast,
+  makeSelectResults,
 } from './selectors';
 import messages from './messages';
 import {
   addLocation,
   submitLocation,
+  clearQueryResults,
+  clearConditions,
+  clearForecast,
 } from './actions';
 import {
   HomePageWrapper,
@@ -40,6 +44,16 @@ import {
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   submitLocation = (event) => {
     event.preventDefault()
+    this.props.clearConditions()
+    this.props.clearForecast()
+    this.props.submitLocation()
+  }
+
+  selectSuggestion = (event) => {
+    this.props.dispatch(addLocation(event.target.value))
+    this.props.clearQueryResults()
+    this.props.clearConditions()
+    this.props.clearForecast()
     this.props.submitLocation()
   }
 
@@ -79,6 +93,27 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             Go
           </Button>
         </form>
+        { this.props.results &&
+          <div>
+            <Typography type="display2" component="h2">
+              <FormattedMessage {...messages.notFound} />
+            </Typography>
+            <div className='location-options'>
+              { this.props.results.map((result) => (
+                  <Button
+                    raised
+                    color="primary"
+                    onClick={this.selectSuggestion}
+                    key={result.l}
+                    value={result.l}
+                  >
+                    {`${result.city} ${result.state}, ${result.country_name}`}
+                  </Button>
+                ))
+              }
+            </div>
+          </div>
+        }
         { this.props.conditions && this.props.forecast &&
           <div>
             <Card className="todays-weather">
@@ -152,6 +187,7 @@ const mapStateToProps = createStructuredSelector({
   location: makeSelectLocation(),
   conditions: makeSelectConditions(),
   forecast: makeSelectForecast(),
+  results: makeSelectResults(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -159,6 +195,9 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     addLocation: (evt) => dispatch(addLocation(evt.target.value)),
     submitLocation: () => dispatch(submitLocation()),
+    clearQueryResults: () => dispatch(clearQueryResults()),
+    clearConditions: () => dispatch(clearConditions()),
+    clearForecast: () => dispatch(clearForecast()),
   };
 }
 

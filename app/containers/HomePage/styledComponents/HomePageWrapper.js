@@ -12,10 +12,15 @@ export default styled.div`
 
   button {
     margin-left: 20px;
+    margin-bottom: 20px;
   }
 
   form {
     text-align: center;
+  }
+
+  span {
+    pointer-events: none;
   }
 
   .todays-weather {
@@ -26,6 +31,13 @@ export default styled.div`
   .three-day-forecast {
     margin: 0 auto;
     width: 1155px;
+  }
+
+  .location-options {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    width: 50%;
   }
 
   .upcoming-weather {

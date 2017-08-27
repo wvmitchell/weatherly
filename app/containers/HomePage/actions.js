@@ -10,6 +10,9 @@ import {
   ADD_CONDITIONS,
   ADD_FORECAST,
   ADD_QUERY_RESULTS,
+  CLEAR_QUERY_RESULTS,
+  CLEAR_CONDITIONS,
+  CLEAR_FORECAST,
 } from './constants';
 
 export function addLocation(location) {
@@ -44,4 +47,22 @@ export function addQueryResults(results) {
     type: ADD_QUERY_RESULTS,
     results,
   };
+}
+
+export function clearQueryResults() {
+  return {
+    type: CLEAR_QUERY_RESULTS,
+  }
+}
+
+export function clearConditions() {
+  return {
+    type: CLEAR_CONDITIONS,
+  }
+}
+
+export function clearForecast() {
+  return {
+    type: CLEAR_FORECAST,
+  }
 }

@@ -24,6 +24,11 @@ const makeSelectForecast = () => createSelector(
   (substate) => substate.get('forecast')
 )
 
+const makeSelectResults = () => createSelector(
+  selectHomePageDomain(),
+  (substate) => substate.get('results')
+)
+
 /**
  * Default selector used by HomePage
  */
@@ -39,4 +44,5 @@ export {
   makeSelectLocation,
   makeSelectConditions,
   makeSelectForecast,
+  makeSelectResults,
 };

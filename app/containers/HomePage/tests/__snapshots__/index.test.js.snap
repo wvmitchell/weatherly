@@ -6,7 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <div>
+  "node": <styled.div>
     <HelmetWrapper
         meta={
             Array [
@@ -27,18 +27,21 @@ ShallowWrapper {
             </withStyles(Typography)>
         </withStyles(Toolbar)>
     </withStyles(AppBar)>
-    <h1>
+    <withStyles(Typography)
+        component="h1"
+        type="display3">
         <FormattedMessage
             defaultMessage="What\'s the weather like where you are?"
             id="app.containers.HomePage.header"
             tagName="span"
             values={Object {}} />
-    </h1>
+    </withStyles(Typography)>
     <form
         onSubmit={[Function]}>
-        <withStyles(Input)
-            defaultValue="Denver, CO"
-            onChange={undefined} />
+        <TextField
+            label="Good question, let\'s see"
+            onChange={undefined}
+            required={false} />
         <withStyles(Button)
             color="accent"
             raised={true}
@@ -46,9 +49,9 @@ ShallowWrapper {
             Go
         </withStyles(Button)>
     </form>
-</div>,
+</styled.div>,
   "nodes": Array [
-    <div>
+    <styled.div>
       <HelmetWrapper
             meta={
                   Array [
@@ -69,18 +72,21 @@ ShallowWrapper {
                   </withStyles(Typography)>
             </withStyles(Toolbar)>
       </withStyles(AppBar)>
-      <h1>
+      <withStyles(Typography)
+            component="h1"
+            type="display3">
             <FormattedMessage
                   defaultMessage="What\'s the weather like where you are?"
                   id="app.containers.HomePage.header"
                   tagName="span"
                   values={Object {}} />
-      </h1>
+      </withStyles(Typography)>
       <form
             onSubmit={[Function]}>
-            <withStyles(Input)
-                  defaultValue="Denver, CO"
-                  onChange={undefined} />
+            <TextField
+                  label="Good question, let\'s see"
+                  onChange={undefined}
+                  required={false} />
             <withStyles(Button)
                   color="accent"
                   raised={true}
@@ -88,7 +94,7 @@ ShallowWrapper {
                   Go
             </withStyles(Button)>
       </form>
-</div>,
+</styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -109,6 +115,7 @@ ShallowWrapper {
           "dispatch": [Function],
         },
         "refs": Object {},
+        "selectSuggestion": [Function],
         "state": null,
         "submitLocation": [Function],
         "updater": Object {
@@ -129,7 +136,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
+        "_currentElement": <styled.div>
           <HelmetWrapper
                     meta={
                               Array [
@@ -150,18 +157,21 @@ ShallowWrapper {
                               </withStyles(Typography)>
                     </withStyles(Toolbar)>
           </withStyles(AppBar)>
-          <h1>
+          <withStyles(Typography)
+                    component="h1"
+                    type="display3">
                     <FormattedMessage
                               defaultMessage="What\'s the weather like where you are?"
                               id="app.containers.HomePage.header"
                               tagName="span"
                               values={Object {}} />
-          </h1>
+          </withStyles(Typography)>
           <form
                     onSubmit={[Function]}>
-                    <withStyles(Input)
-                              defaultValue="Denver, CO"
-                              onChange={undefined} />
+                    <TextField
+                              label="Good question, let\'s see"
+                              onChange={undefined}
+                              required={false} />
                     <withStyles(Button)
                               color="accent"
                               raised={true}
@@ -169,9 +179,9 @@ ShallowWrapper {
                               Go
                     </withStyles(Button)>
           </form>
-</div>,
+</styled.div>,
         "_debugID": 2,
-        "_renderedOutput": <div>
+        "_renderedOutput": <styled.div>
           <HelmetWrapper
                     meta={
                               Array [
@@ -192,18 +202,21 @@ ShallowWrapper {
                               </withStyles(Typography)>
                     </withStyles(Toolbar)>
           </withStyles(AppBar)>
-          <h1>
+          <withStyles(Typography)
+                    component="h1"
+                    type="display3">
                     <FormattedMessage
                               defaultMessage="What\'s the weather like where you are?"
                               id="app.containers.HomePage.header"
                               tagName="span"
                               values={Object {}} />
-          </h1>
+          </withStyles(Typography)>
           <form
                     onSubmit={[Function]}>
-                    <withStyles(Input)
-                              defaultValue="Denver, CO"
-                              onChange={undefined} />
+                    <TextField
+                              label="Good question, let\'s see"
+                              onChange={undefined}
+                              required={false} />
                     <withStyles(Button)
                               color="accent"
                               raised={true}
@@ -211,9 +224,9 @@ ShallowWrapper {
                               Go
                     </withStyles(Button)>
           </form>
-</div>,
+</styled.div>,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,
