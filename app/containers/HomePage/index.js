@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
+import { cookie } from 'cookie_js'
 import {
   AppBar, 
   Toolbar,
@@ -42,7 +43,13 @@ import {
 } from './styledComponents';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  submitLocation = (event) => {
+  componentDidMount = () => {
+    const location = cookie.get('location')
+    this.props.dispatch(addLocation(location))
+    this.props.submitLocation()
+  }
+
+  searchForLocation = (event) => {
     event.preventDefault()
     this.props.clearConditions()
     this.props.clearForecast()
@@ -68,6 +75,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
+    if (this.props.location) {
+      cookie.set({ location: this.props.location })
+    }
+
     return (
       <HomePageWrapper>
         <Helmet
@@ -84,7 +95,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         <Typography type="display3" component="h1">
           <FormattedMessage {...messages.header} />
         </Typography>
-        <form onSubmit={ this.submitLocation }>
+        <form onSubmit={ this.searchForLocation }>
           <TextField
             label="Good question, let's see"
             onChange={ this.props.addLocation }

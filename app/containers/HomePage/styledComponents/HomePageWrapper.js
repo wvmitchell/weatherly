@@ -25,7 +25,7 @@ export default styled.div`
 
   .todays-weather {
     margin: 20px auto;
-    width: 345px;
+    width: 745px;
   }
 
   .three-day-forecast {
