@@ -1,21 +1,21 @@
-#### Weatherly Challenge
+# Weatherly Challenge
 
 The purpose of this app is to provide the user with a weather forecast for their area, allowing them to enter a zipcode
 or city. Additionally, if the user enters an incomplete entry, they're prompted with potential options.
 
-## Necessaries
+### Necessaries
 
 You should already have node installed before running this project, ideally node 7. If you're using nvm to manage your
 node versions, you can switch with `nvm use 7`
 
-## Getting started
+### Getting started
 
 clone the repository: `git clone git@github.com:wvmitchell/weatherly.git`
 navigate into the repo: `cd weatherly`
 install the dependencies: `npm i`
 start the app: `npm run start`
 
-## Running the tests
+### Running the tests
 
 Two different options here:
 
@@ -25,7 +25,7 @@ The former will rerun tests whenever you make any changes, very handy. The latte
 test suite, and will then provide a coverage estimaate.
 
 
-## About the design
+### About the design
 
 This app is built on top of the react-boilerplate framework, and utilizes the following technologies
 
