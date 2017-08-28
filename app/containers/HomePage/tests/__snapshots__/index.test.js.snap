@@ -21,33 +21,9 @@ ShallowWrapper {
         showMenuIconButton={true}
         title="Weatherly"
         zDepth={1} />
-    <h1>
-        What is the weather like where you are?
-    </h1>
-    <form
-        onSubmit={[Function]}>
-        <TextField
-            disabled={false}
-            floatingLabelFixed={false}
-            fullWidth={false}
-            id="homePage.locationInput"
-            label="Good question, let\'s see"
-            multiLine={false}
-            onChange={undefined}
-            rows={1}
-            type="text"
-            underlineShow={true} />
-        <RaisedButton
-            backgroundColor="accent"
-            disabled={false}
-            fullWidth={false}
-            labelPosition="after"
-            primary={false}
-            secondary={false}
-            type="submit">
-            Go
-        </RaisedButton>
-    </form>
+    <LocationForm
+        addLocation={undefined}
+        searchForLocation={[Function]} />
 </styled.div>,
   "nodes": Array [
     <styled.div>
@@ -65,33 +41,9 @@ ShallowWrapper {
             showMenuIconButton={true}
             title="Weatherly"
             zDepth={1} />
-      <h1>
-            What is the weather like where you are?
-      </h1>
-      <form
-            onSubmit={[Function]}>
-            <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
-                  fullWidth={false}
-                  id="homePage.locationInput"
-                  label="Good question, let\'s see"
-                  multiLine={false}
-                  onChange={undefined}
-                  rows={1}
-                  type="text"
-                  underlineShow={true} />
-            <RaisedButton
-                  backgroundColor="accent"
-                  disabled={false}
-                  fullWidth={false}
-                  labelPosition="after"
-                  primary={false}
-                  secondary={false}
-                  type="submit">
-                  Go
-            </RaisedButton>
-      </form>
+      <LocationForm
+            addLocation={undefined}
+            searchForLocation={[Function]} />
 </styled.div>,
   ],
   "options": Object {},
@@ -150,33 +102,9 @@ ShallowWrapper {
                     showMenuIconButton={true}
                     title="Weatherly"
                     zDepth={1} />
-          <h1>
-                    What is the weather like where you are?
-          </h1>
-          <form
-                    onSubmit={[Function]}>
-                    <TextField
-                              disabled={false}
-                              floatingLabelFixed={false}
-                              fullWidth={false}
-                              id="homePage.locationInput"
-                              label="Good question, let\'s see"
-                              multiLine={false}
-                              onChange={undefined}
-                              rows={1}
-                              type="text"
-                              underlineShow={true} />
-                    <RaisedButton
-                              backgroundColor="accent"
-                              disabled={false}
-                              fullWidth={false}
-                              labelPosition="after"
-                              primary={false}
-                              secondary={false}
-                              type="submit">
-                              Go
-                    </RaisedButton>
-          </form>
+          <LocationForm
+                    addLocation={undefined}
+                    searchForLocation={[Function]} />
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div>
@@ -194,33 +122,9 @@ ShallowWrapper {
                     showMenuIconButton={true}
                     title="Weatherly"
                     zDepth={1} />
-          <h1>
-                    What is the weather like where you are?
-          </h1>
-          <form
-                    onSubmit={[Function]}>
-                    <TextField
-                              disabled={false}
-                              floatingLabelFixed={false}
-                              fullWidth={false}
-                              id="homePage.locationInput"
-                              label="Good question, let\'s see"
-                              multiLine={false}
-                              onChange={undefined}
-                              rows={1}
-                              type="text"
-                              underlineShow={true} />
-                    <RaisedButton
-                              backgroundColor="accent"
-                              disabled={false}
-                              fullWidth={false}
-                              labelPosition="after"
-                              primary={false}
-                              secondary={false}
-                              type="submit">
-                              Go
-                    </RaisedButton>
-          </form>
+          <LocationForm
+                    addLocation={undefined}
+                    searchForLocation={[Function]} />
 </styled.div>,
       },
       "_renderedNodeType": 1,

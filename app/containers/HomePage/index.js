@@ -11,15 +11,11 @@ import { createStructuredSelector } from 'reselect';
 import { cookie } from 'cookie_js';
 import {
   AppBar,
-  TextField,
-  RaisedButton,
 } from 'material-ui';
-import {
-  Card,
-  CardHeader,
-  CardText,
-} from 'material-ui/Card';
+import LocationForm from './components/LocationForm';
 import ForecastCard from './components/ForecastCard';
+import TodaysForecast from './components/TodaysForecast';
+import LocationResults from './components/LocationResults';
 import makeSelectHomePage, {
   makeSelectLocation,
   makeSelectConditions,
@@ -83,54 +79,23 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           ]}
         />
         <AppBar title="Weatherly" />
-        <h1>What is the weather like where you are?</h1>
-        <form onSubmit={this.searchForLocation}>
-          <TextField
-            label="Good question, let's see"
-            onChange={this.props.addLocation}
-            id="homePage.locationInput"
-          />
-          <RaisedButton backgroundColor="accent" type="submit">
-            Go
-          </RaisedButton>
-        </form>
+        <LocationForm
+          addLocation={this.props.addLocation}
+          searchForLocation={this.searchForLocation}
+        />
         { this.props.results &&
-          <div>
-            <h2>We found a few matches, is one of these what you are looking for?</h2>
-            <div className="location-options">
-              { this.props.results.map((result) => (
-                <RaisedButton
-                  backgroundColor="primary"
-                  className="location-option"
-                  onClick={() => this.selectSuggestion(result.l)}
-                  key={result.l}
-                >
-                  {`${result.city} ${result.state}, ${result.country_name}`}
-                </RaisedButton>)
-                )
-              }
-            </div>
-          </div>
+          <LocationResults
+            results={this.props.results}
+            selectSuggestion={this.selectSuggestion}
+          />
         }
         { this.props.conditions && this.props.forecast &&
           <div>
-            <Card className="todays-weather">
-              <CardHeader
-                title={`${this.props.conditions.display_location.full} - ${this.props.forecast.simple.forecastday[0].date.pretty}`}
-                subtitle={this.getTempExtremesString(this.props.forecast, 0)}
-                avatar={this.props.forecast.txt.forecastday[0].icon_url}
-              />
-              <CardText>
-                <h3>Currently</h3>
-                <p>{this.props.conditions.weather}, {this.props.conditions.temperature_string}</p>
-                <br />
-                <h3>Today</h3>
-                <p>{this.props.forecast.txt.forecastday[0].fcttext}</p>
-                <br />
-                <h3>Tonight</h3>
-                <p>{this.props.forecast.txt.forecastday[1].fcttext}</p>
-              </CardText>
-            </Card>
+            <TodaysForecast
+              conditions={this.props.conditions}
+              forecast={this.props.forecast}
+              getTempExtremesString={this.getTempExtremesString}
+            />
             <br />
             <h2>Here is what to expect for the next few days:</h2>
             <div className="three-day-forecast">
