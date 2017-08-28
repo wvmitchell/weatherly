@@ -10,10 +10,10 @@ node versions, you can switch with `nvm use 7`
 
 ### Getting started
 
-clone the repository: `git clone git@github.com:wvmitchell/weatherly.git`
-navigate into the repo: `cd weatherly`
-install the dependencies: `npm i`
-start the app: `npm run start`
+clone the repository: `git clone git@github.com:wvmitchell/weatherly.git` 
+navigate into the repo: `cd weatherly` 
+install the dependencies: `npm i` 
+start the app: `npm run start` 
 
 ### Running the tests
 
