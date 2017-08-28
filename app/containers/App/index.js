@@ -12,18 +12,11 @@
  */
 
 import React from 'react';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
-import { green, lightBlue, red } from 'material-ui/colors';
+import { MuiThemeProvider } from 'material-ui/styles';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-const theme = createMuiTheme({
-  palette: createPalette({
-    primary: green,
-    accent: {
-      ...lightBlue,
-    },
-    error: red,
-  }),
+const theme = getMuiTheme({
+  fontFamily: 'Roboto, sans-serif',
 });
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

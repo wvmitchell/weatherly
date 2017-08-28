@@ -11,15 +11,13 @@ import { createStructuredSelector } from 'reselect';
 import { cookie } from 'cookie_js';
 import {
   AppBar,
-  Toolbar,
-  Typography,
   TextField,
-  Button,
-  Avatar,
+  RaisedButton,
 } from 'material-ui';
-import Card, {
+import {
+  Card,
   CardHeader,
-  CardContent,
+  CardText,
 } from 'material-ui/Card';
 import ForecastCard from './components/ForecastCard';
 import makeSelectHomePage, {
@@ -63,8 +61,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     this.props.submitLocation();
   }
 
-  selectSuggestion = (event) => {
-    this.props.dispatch(addLocation(event.target.value));
+  selectSuggestion = (suggestion) => {
+    this.props.dispatch(addLocation(suggestion));
     this.props.clearQueryResults();
     this.props.clearConditions();
     this.props.clearForecast();
@@ -84,39 +82,31 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             { name: 'description', content: 'Find out what the weather is like in your area' },
           ]}
         />
-        <AppBar position="static">
-          <Toolbar>
-            <Typography type="title" color="inherit">Weatherly</Typography>
-          </Toolbar>
-        </AppBar>
-        <Typography type="display3" component="h1">
-          What is the weather like where you are?
-        </Typography>
+        <AppBar title="Weatherly" />
+        <h1>What is the weather like where you are?</h1>
         <form onSubmit={this.searchForLocation}>
           <TextField
             label="Good question, let's see"
             onChange={this.props.addLocation}
+            id="homePage.locationInput"
           />
-          <Button raised color="accent" type="submit">
+          <RaisedButton backgroundColor="accent" type="submit">
             Go
-          </Button>
+          </RaisedButton>
         </form>
         { this.props.results &&
           <div>
-            <Typography type="display2" component="h2">
-              We found a few matches, is one of these what you are looking for?
-            </Typography>
+            <h2>We found a few matches, is one of these what you are looking for?</h2>
             <div className="location-options">
               { this.props.results.map((result) => (
-                <Button
-                  raised
-                  color="primary"
-                  onClick={this.selectSuggestion}
+                <RaisedButton
+                  backgroundColor="primary"
+                  className="location-option"
+                  onClick={() => this.selectSuggestion(result.l)}
                   key={result.l}
-                  value={result.l}
                 >
                   {`${result.city} ${result.state}, ${result.country_name}`}
-                </Button>)
+                </RaisedButton>)
                 )
               }
             </div>
@@ -126,42 +116,23 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           <div>
             <Card className="todays-weather">
               <CardHeader
-                avatar={
-                  <Avatar
-                    alt={this.props.forecast.txt.forecastday[0].icon}
-                    src={this.props.forecast.txt.forecastday[0].icon_url}
-                  />
-                }
                 title={this.props.conditions.display_location.full}
-                subheader={this.getTempExtremesString(this.props.forecast, 0)}
+                subtitle={this.getTempExtremesString(this.props.forecast, 0)}
+                avatar={this.props.forecast.txt.forecastday[0].icon_url}
               />
-              <CardContent>
-                <Typography type="headline" component="h3">
-                  Currently
-                </Typography>
-                <Typography type="body1">
-                  {this.props.conditions.weather}, {this.props.conditions.temperature_string}
-                </Typography>
+              <CardText>
+                <h3>Currently</h3>
+                <p>{this.props.conditions.weather}, {this.props.conditions.temperature_string}</p>
                 <br />
-                <Typography type="headline" component="h3">
-                  Today
-                </Typography>
-                <Typography type="body1">
-                  {this.props.forecast.txt.forecastday[0].fcttext}
-                </Typography>
+                <h3>Today</h3>
+                <p>{this.props.forecast.txt.forecastday[0].fcttext}</p>
                 <br />
-                <Typography type="headline" component="h3">
-                  Tonight
-                </Typography>
-                <Typography type="body1">
-                  {this.props.forecast.txt.forecastday[1].fcttext}
-                </Typography>
-              </CardContent>
+                <h3>Tonight</h3>
+                <p>{this.props.forecast.txt.forecastday[1].fcttext}</p>
+              </CardText>
             </Card>
             <br />
-            <Typography type="display2" component="h2">
-              Here is what to expect for the next few days:
-            </Typography>
+            <h2>Here is what to expect for the next few days:</h2>
             <div className="three-day-forecast">
               <ForecastCard
                 forecast={this.props.forecast}
@@ -191,7 +162,7 @@ HomePage.propTypes = {
   location: PropTypes.string,
   forecast: PropTypes.object,
   conditions: PropTypes.object,
-  results: PropTypes.object,
+  results: PropTypes.array,
   addLocation: PropTypes.func,
   submitLocation: PropTypes.func,
   clearForecast: PropTypes.func,

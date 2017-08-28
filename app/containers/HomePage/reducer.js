@@ -13,6 +13,7 @@ import {
   CLEAR_QUERY_RESULTS,
   CLEAR_CONDITIONS,
   CLEAR_FORECAST,
+  API_FETCH_ERROR,
 } from './constants';
 
 const initialState = fromJS({});
@@ -33,6 +34,8 @@ function homePageReducer(state = initialState, action) {
       return state.delete('conditions');
     case CLEAR_FORECAST:
       return state.delete('forecast');
+    case API_FETCH_ERROR:
+      return state.set('fetchError', action.error);
     default:
       return state;
   }

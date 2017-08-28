@@ -16,11 +16,6 @@ export default styled.div`
     width: 345px;
   }
 
-  button {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
   form {
     text-align: center;
   }
@@ -44,6 +39,12 @@ export default styled.div`
     flex-wrap: wrap;
     margin: 20px auto;
     width: 50%;
+  }
+
+  .location-option {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 0px 10px;
   }
 
   .upcoming-weather {
