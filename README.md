@@ -1,7 +1,9 @@
 # Weatherly Challenge
 
 The purpose of this app is to provide the user with a weather forecast for their area, allowing them to enter a zipcode
-or city. Additionally, if the user enters an incomplete entry, they're prompted with potential options.
+or city. Additionally, if the user enters an incomplete entry, they're prompted with potential options. Finally, the
+project sets a cookie on the user's machine to remember their last selection, so they can get the same forecast on
+refresh.
 
 ### Necessaries
 
@@ -32,6 +34,7 @@ This app is built on top of the react-boilerplate framework, and utilizes the fo
 React  
 Redux  
 Redux Sagas  
+CookieJS  
 
 Note: The exact requirements for this project asked for using jquery, only for ajax purposes. Rather than doing this,
 I've used the whatwg-fetch polyfill, which enables the HTML5 window.fetch standard.
