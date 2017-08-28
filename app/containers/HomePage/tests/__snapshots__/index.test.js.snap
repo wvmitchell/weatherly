@@ -17,33 +17,36 @@ ShallowWrapper {
               ]
         }
         title="Weatherly - Weather happens" />
-    <withStyles(AppBar)
-        position="static">
-        <withStyles(Toolbar)>
-            <withStyles(Typography)
-                color="inherit"
-                type="title">
-                Weatherly
-            </withStyles(Typography)>
-        </withStyles(Toolbar)>
-    </withStyles(AppBar)>
-    <withStyles(Typography)
-        component="h1"
-        type="display3">
+    <AppBar
+        showMenuIconButton={true}
+        title="Weatherly"
+        zDepth={1} />
+    <h1>
         What is the weather like where you are?
-    </withStyles(Typography)>
+    </h1>
     <form
         onSubmit={[Function]}>
         <TextField
+            disabled={false}
+            floatingLabelFixed={false}
+            fullWidth={false}
+            id="homePage.locationInput"
             label="Good question, let\'s see"
+            multiLine={false}
             onChange={undefined}
-            required={false} />
-        <withStyles(Button)
-            color="accent"
-            raised={true}
+            rows={1}
+            type="text"
+            underlineShow={true} />
+        <RaisedButton
+            backgroundColor="accent"
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            primary={false}
+            secondary={false}
             type="submit">
             Go
-        </withStyles(Button)>
+        </RaisedButton>
     </form>
 </styled.div>,
   "nodes": Array [
@@ -58,33 +61,36 @@ ShallowWrapper {
                       ]
             }
             title="Weatherly - Weather happens" />
-      <withStyles(AppBar)
-            position="static">
-            <withStyles(Toolbar)>
-                  <withStyles(Typography)
-                        color="inherit"
-                        type="title">
-                        Weatherly
-                  </withStyles(Typography)>
-            </withStyles(Toolbar)>
-      </withStyles(AppBar)>
-      <withStyles(Typography)
-            component="h1"
-            type="display3">
+      <AppBar
+            showMenuIconButton={true}
+            title="Weatherly"
+            zDepth={1} />
+      <h1>
             What is the weather like where you are?
-      </withStyles(Typography)>
+      </h1>
       <form
             onSubmit={[Function]}>
             <TextField
+                  disabled={false}
+                  floatingLabelFixed={false}
+                  fullWidth={false}
+                  id="homePage.locationInput"
                   label="Good question, let\'s see"
+                  multiLine={false}
                   onChange={undefined}
-                  required={false} />
-            <withStyles(Button)
-                  color="accent"
-                  raised={true}
+                  rows={1}
+                  type="text"
+                  underlineShow={true} />
+            <RaisedButton
+                  backgroundColor="accent"
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  primary={false}
+                  secondary={false}
                   type="submit">
                   Go
-            </withStyles(Button)>
+            </RaisedButton>
       </form>
 </styled.div>,
   ],
@@ -140,33 +146,36 @@ ShallowWrapper {
                                       ]
                     }
                     title="Weatherly - Weather happens" />
-          <withStyles(AppBar)
-                    position="static">
-                    <withStyles(Toolbar)>
-                              <withStyles(Typography)
-                                        color="inherit"
-                                        type="title">
-                                        Weatherly
-                              </withStyles(Typography)>
-                    </withStyles(Toolbar)>
-          </withStyles(AppBar)>
-          <withStyles(Typography)
-                    component="h1"
-                    type="display3">
+          <AppBar
+                    showMenuIconButton={true}
+                    title="Weatherly"
+                    zDepth={1} />
+          <h1>
                     What is the weather like where you are?
-          </withStyles(Typography)>
+          </h1>
           <form
                     onSubmit={[Function]}>
                     <TextField
+                              disabled={false}
+                              floatingLabelFixed={false}
+                              fullWidth={false}
+                              id="homePage.locationInput"
                               label="Good question, let\'s see"
+                              multiLine={false}
                               onChange={undefined}
-                              required={false} />
-                    <withStyles(Button)
-                              color="accent"
-                              raised={true}
+                              rows={1}
+                              type="text"
+                              underlineShow={true} />
+                    <RaisedButton
+                              backgroundColor="accent"
+                              disabled={false}
+                              fullWidth={false}
+                              labelPosition="after"
+                              primary={false}
+                              secondary={false}
                               type="submit">
                               Go
-                    </withStyles(Button)>
+                    </RaisedButton>
           </form>
 </styled.div>,
         "_debugID": 2,
@@ -181,33 +190,36 @@ ShallowWrapper {
                                       ]
                     }
                     title="Weatherly - Weather happens" />
-          <withStyles(AppBar)
-                    position="static">
-                    <withStyles(Toolbar)>
-                              <withStyles(Typography)
-                                        color="inherit"
-                                        type="title">
-                                        Weatherly
-                              </withStyles(Typography)>
-                    </withStyles(Toolbar)>
-          </withStyles(AppBar)>
-          <withStyles(Typography)
-                    component="h1"
-                    type="display3">
+          <AppBar
+                    showMenuIconButton={true}
+                    title="Weatherly"
+                    zDepth={1} />
+          <h1>
                     What is the weather like where you are?
-          </withStyles(Typography)>
+          </h1>
           <form
                     onSubmit={[Function]}>
                     <TextField
+                              disabled={false}
+                              floatingLabelFixed={false}
+                              fullWidth={false}
+                              id="homePage.locationInput"
                               label="Good question, let\'s see"
+                              multiLine={false}
                               onChange={undefined}
-                              required={false} />
-                    <withStyles(Button)
-                              color="accent"
-                              raised={true}
+                              rows={1}
+                              type="text"
+                              underlineShow={true} />
+                    <RaisedButton
+                              backgroundColor="accent"
+                              disabled={false}
+                              fullWidth={false}
+                              labelPosition="after"
+                              primary={false}
+                              secondary={false}
                               type="submit">
                               Go
-                    </withStyles(Button)>
+                    </RaisedButton>
           </form>
 </styled.div>,
       },

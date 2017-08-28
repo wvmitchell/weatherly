@@ -1,10 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import { HomePage, mapDispatchToProps } from '../index';
 
 describe('<HomePage />', () => {
   let dispatch = jest.fn();
+  const muiTheme = getMuiTheme();
 
   it('Expect it to match snapshot', () => {
     const renderedComponent = shallow(<HomePage dispatch={dispatch} />);
@@ -32,7 +34,7 @@ describe('<HomePage />', () => {
       <HomePage
         dispatch={dispatch}
         submitLocation={jest.fn()}
-      />
+      />, { context: { muiTheme }, childContextTypes: { muiTheme } }
     );
     expect(renderedComponent.instance().getTempExtremesString(mockForecast, 0)).toEqual('High: 88.2 F (32.2 C) / Low: 18.2 F (2.2 C)');
   });
@@ -47,7 +49,7 @@ describe('<HomePage />', () => {
         clearConditions={clearConditions}
         clearForecast={clearForecast}
         submitLocation={submitLocation}
-      />
+      />, { context: { muiTheme }, childContextTypes: { muiTheme } }
     );
     renderedComponent.instance().searchForLocation({ preventDefault: jest.fn() });
     expect(clearConditions).toHaveBeenCalled();
@@ -67,7 +69,7 @@ describe('<HomePage />', () => {
         clearConditions={clearConditions}
         clearForecast={clearForecast}
         submitLocation={submitLocation}
-      />
+      />, { context: { muiTheme }, childContextTypes: { muiTheme } }
     );
     renderedComponent.instance().selectSuggestion({ target: { value: 'some-location' } });
     expect(clearQueryResults).toHaveBeenCalled();

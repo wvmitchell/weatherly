@@ -8,46 +8,36 @@ ShallowWrapper {
   "length": 1,
   "node": <Card
     className="upcoming-weather"
-    raised={false}>
-    <withStyles(CardHeader)
-        avatar={
-            <withStyles(Avatar)
-                alt="some-name"
-                src="some-path" />
-        }
-        subheader={undefined}
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}>
+    <CardHeader
+        avatar="some-path"
+        subtitle={undefined}
         title="sunday" />
-    <withStyles(CardContent)>
-        <withStyles(Typography)
-            component="h3"
-            type="headline">
+    <CardText>
+        <h3>
             Conditions
-        </withStyles(Typography)>
-        <withStyles(Typography)
-            type="body1" />
-    </withStyles(CardContent)>
+        </h3>
+        <p />
+    </CardText>
 </Card>,
   "nodes": Array [
     <Card
       className="upcoming-weather"
-      raised={false}>
-      <withStyles(CardHeader)
-            avatar={
-                  <withStyles(Avatar)
-                        alt="some-name"
-                        src="some-path" />
-            }
-            subheader={undefined}
+      expandable={false}
+      expanded={null}
+      initiallyExpanded={false}>
+      <CardHeader
+            avatar="some-path"
+            subtitle={undefined}
             title="sunday" />
-      <withStyles(CardContent)>
-            <withStyles(Typography)
-                  component="h3"
-                  type="headline">
+      <CardText>
+            <h3>
                   Conditions
-            </withStyles(Typography)>
-            <withStyles(Typography)
-                  type="body1" />
-      </withStyles(CardContent)>
+            </h3>
+            <p />
+      </CardText>
 </Card>,
   ],
   "options": Object {},
@@ -131,46 +121,36 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Card
           className="upcoming-weather"
-          raised={false}>
-          <withStyles(CardHeader)
-                    avatar={
-                              <withStyles(Avatar)
-                                        alt="some-name"
-                                        src="some-path" />
-                    }
-                    subheader={undefined}
+          expandable={false}
+          expanded={null}
+          initiallyExpanded={false}>
+          <CardHeader
+                    avatar="some-path"
+                    subtitle={undefined}
                     title="sunday" />
-          <withStyles(CardContent)>
-                    <withStyles(Typography)
-                              component="h3"
-                              type="headline">
+          <CardText>
+                    <h3>
                               Conditions
-                    </withStyles(Typography)>
-                    <withStyles(Typography)
-                              type="body1" />
-          </withStyles(CardContent)>
+                    </h3>
+                    <p />
+          </CardText>
 </Card>,
         "_debugID": 2,
         "_renderedOutput": <Card
           className="upcoming-weather"
-          raised={false}>
-          <withStyles(CardHeader)
-                    avatar={
-                              <withStyles(Avatar)
-                                        alt="some-name"
-                                        src="some-path" />
-                    }
-                    subheader={undefined}
+          expandable={false}
+          expanded={null}
+          initiallyExpanded={false}>
+          <CardHeader
+                    avatar="some-path"
+                    subtitle={undefined}
                     title="sunday" />
-          <withStyles(CardContent)>
-                    <withStyles(Typography)
-                              component="h3"
-                              type="headline">
+          <CardText>
+                    <h3>
                               Conditions
-                    </withStyles(Typography)>
-                    <withStyles(Typography)
-                              type="body1" />
-          </withStyles(CardContent)>
+                    </h3>
+                    <p />
+          </CardText>
 </Card>,
       },
       "_renderedNodeType": 1,
