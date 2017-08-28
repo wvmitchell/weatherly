@@ -7,7 +7,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { cookie } from 'cookie_js';
 import {
@@ -29,7 +28,6 @@ import makeSelectHomePage, {
   makeSelectForecast,
   makeSelectResults,
 } from './selectors';
-import messages from './messages';
 import {
   addLocation,
   submitLocation,
@@ -92,7 +90,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           </Toolbar>
         </AppBar>
         <Typography type="display3" component="h1">
-          <FormattedMessage {...messages.header} />
+          What is the weather like where you are?
         </Typography>
         <form onSubmit={this.searchForLocation}>
           <TextField
@@ -106,7 +104,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         { this.props.results &&
           <div>
             <Typography type="display2" component="h2">
-              <FormattedMessage {...messages.notFound} />
+              We found a few matches, is one of these what you are looking for?
             </Typography>
             <div className="location-options">
               { this.props.results.map((result) => (
@@ -162,7 +160,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             </Card>
             <br />
             <Typography type="display2" component="h2">
-              <FormattedMessage {...messages.secondHeader} />
+              Here is what to expect for the next few days:
             </Typography>
             <div className="three-day-forecast">
               <ForecastCard
@@ -209,7 +207,7 @@ const mapStateToProps = createStructuredSelector({
   results: makeSelectResults(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     addLocation: (evt) => dispatch(addLocation(evt.target.value)),

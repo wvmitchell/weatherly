@@ -9,6 +9,8 @@ import { watchSubmitLocation, submitLocation } from '../sagas';
 import {
   SUBMIT_LOCATION,
   ADD_CONDITIONS,
+  ADD_FORECAST,
+  API_FETCH_ERROR,
 } from '../constants';
 
 describe('HomePage Sagas', () => {
@@ -27,7 +29,7 @@ describe('HomePage Sagas', () => {
   describe('submitLocation Saga', () => {
     const generator = submitLocation();
     const mockConditions = { current_observation: { temp: 'some-temp' } };
-    const mockForecast = { forecast: { simpleforecast: 'some-forecast', txt: 'some-txt-forecast' } };
+    const mockForecast = { simple: 'some-forecast', txt: 'some-txt-forecast' };
 
     it('selects the location', () => {
       expect(generator.next().value).toMatchSnapshot();
@@ -46,11 +48,23 @@ describe('HomePage Sagas', () => {
     });
 
     it('updates the state with the forecast', () => {
-      expect(generator.next(mockForecast).value).toEqual(put({ type: ADD_CONDITIONS, forecast: mockForecast.current_observation }));
+      expect(generator.next(mockForecast).value).toEqual(put({ type: ADD_FORECAST, forecast: mockForecast.forecast }));
     });
 
     it('is done', () => {
       expect(generator.next()).toEqual({ done: true, value: undefined });
+    });
+  });
+
+  describe('submitLocation Saga on error', () => {
+    const generator = submitLocation();
+
+    it('selects the location', () => {
+      expect(generator.next().value).toMatchSnapshot();
+    });
+
+    it('dispatches ADD_QUERY_RESULTS', () => {
+      expect(generator.throw(new Error('Something went wrong')).value).toEqual(put({ type: API_FETCH_ERROR, error: 'Something went wrong' }));
     });
   });
 });

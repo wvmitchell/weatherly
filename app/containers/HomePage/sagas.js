@@ -21,11 +21,12 @@ export function* submitLocation() {
     const location = yield select(makeSelectLocation());
     const forecast = yield call(API.getForecast, location);
     const conditions = yield call(API.getConditions, location);
+    const parsedForecast = forecast.forecast && { simple: forecast.forecast.simpleforecast, txt: forecast.forecast.txt_forecast };
     if (conditions.current_observation) {
       yield put({ type: ADD_CONDITIONS, conditions: conditions.current_observation });
       yield put({
         type: ADD_FORECAST,
-        forecast: { simple: forecast.forecast.simpleforecast, txt: forecast.forecast.txt_forecast },
+        forecast: parsedForecast,
       });
     } else {
       yield put({ type: ADD_QUERY_RESULTS, results: conditions.response.results });

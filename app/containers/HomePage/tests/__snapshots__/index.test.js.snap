@@ -30,11 +30,7 @@ ShallowWrapper {
     <withStyles(Typography)
         component="h1"
         type="display3">
-        <FormattedMessage
-            defaultMessage="What\'s the weather like where you are?"
-            id="app.containers.HomePage.header"
-            tagName="span"
-            values={Object {}} />
+        What is the weather like where you are?
     </withStyles(Typography)>
     <form
         onSubmit={[Function]}>
@@ -75,11 +71,7 @@ ShallowWrapper {
       <withStyles(Typography)
             component="h1"
             type="display3">
-            <FormattedMessage
-                  defaultMessage="What\'s the weather like where you are?"
-                  id="app.containers.HomePage.header"
-                  tagName="span"
-                  values={Object {}} />
+            What is the weather like where you are?
       </withStyles(Typography)>
       <form
             onSubmit={[Function]}>
@@ -161,11 +153,7 @@ ShallowWrapper {
           <withStyles(Typography)
                     component="h1"
                     type="display3">
-                    <FormattedMessage
-                              defaultMessage="What\'s the weather like where you are?"
-                              id="app.containers.HomePage.header"
-                              tagName="span"
-                              values={Object {}} />
+                    What is the weather like where you are?
           </withStyles(Typography)>
           <form
                     onSubmit={[Function]}>
@@ -206,11 +194,7 @@ ShallowWrapper {
           <withStyles(Typography)
                     component="h1"
                     type="display3">
-                    <FormattedMessage
-                              defaultMessage="What\'s the weather like where you are?"
-                              id="app.containers.HomePage.header"
-                              tagName="span"
-                              values={Object {}} />
+                    What is the weather like where you are?
           </withStyles(Typography)>
           <form
                     onSubmit={[Function]}>

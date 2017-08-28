@@ -1,3 +1,13 @@
+exports[`HomePage Sagas submitLocation Saga on error selects the location 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
 exports[`HomePage Sagas submitLocation Saga selects the location 1`] = `
 Object {
   "@@redux-saga/IO": true,
