@@ -29,9 +29,9 @@ test suite, and will then provide a coverage estimaate.
 
 This app is built on top of the react-boilerplate framework, and utilizes the following technologies
 
-React 
-Redux 
-Redux Sagas 
+React  
+Redux  
+Redux Sagas  
 
 Note: The exact requirements for this project asked for using jquery, only for ajax purposes. Rather than doing this,
 I've used the whatwg-fetch polyfill, which enables the HTML5 window.fetch standard.
