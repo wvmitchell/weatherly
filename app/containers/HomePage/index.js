@@ -116,7 +116,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           <div>
             <Card className="todays-weather">
               <CardHeader
-                title={this.props.conditions.display_location.full}
+                title={`${this.props.conditions.display_location.full} - ${this.props.forecast.simple.forecastday[0].date.pretty}`}
                 subtitle={this.getTempExtremesString(this.props.forecast, 0)}
                 avatar={this.props.forecast.txt.forecastday[0].icon_url}
               />
