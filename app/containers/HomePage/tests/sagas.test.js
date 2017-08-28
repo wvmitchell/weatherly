@@ -26,7 +26,8 @@ describe('HomePage Sagas', () => {
 
   describe('submitLocation Saga', () => {
     const generator = submitLocation();
-    const mockResponse = { current_observation: { temp: 'some-temp' } };
+    const mockConditions = { current_observation: { temp: 'some-temp' } };
+    const mockForecast = { forecast: { simpleforecast: 'some-forecast', txt: 'some-txt-forecast' } };
 
     it('selects the location', () => {
       expect(generator.next().value).toMatchSnapshot();
@@ -41,7 +42,11 @@ describe('HomePage Sagas', () => {
     });
 
     it('updates the state with the conditions', () => {
-      expect(generator.next(mockResponse).value).toEqual(put({ type: ADD_CONDITIONS, conditions: mockResponse.current_observation }));
+      expect(generator.next(mockConditions).value).toEqual(put({ type: ADD_CONDITIONS, conditions: mockConditions.current_observation }));
+    });
+
+    it('updates the state with the forecast', () => {
+      expect(generator.next(mockForecast).value).toEqual(put({ type: ADD_CONDITIONS, forecast: mockForecast.current_observation }));
     });
 
     it('is done', () => {
