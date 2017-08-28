@@ -52,17 +52,17 @@ export function addQueryResults(results) {
 export function clearQueryResults() {
   return {
     type: CLEAR_QUERY_RESULTS,
-  }
+  };
 }
 
 export function clearConditions() {
   return {
     type: CLEAR_CONDITIONS,
-  }
+  };
 }
 
 export function clearForecast() {
   return {
     type: CLEAR_FORECAST,
-  }
+  };
 }

@@ -12,22 +12,22 @@ const selectHomePageDomain = () => (state) => state.get('homePage');
 const makeSelectLocation = () => createSelector(
   selectHomePageDomain(),
   (substate) => substate.get('location')
-)
+);
 
 const makeSelectConditions = () => createSelector(
   selectHomePageDomain(),
   (substate) => substate.get('conditions')
-)
+);
 
 const makeSelectForecast = () => createSelector(
   selectHomePageDomain(),
   (substate) => substate.get('forecast')
-)
+);
 
 const makeSelectResults = () => createSelector(
   selectHomePageDomain(),
   (substate) => substate.get('results')
-)
+);
 
 /**
  * Default selector used by HomePage

@@ -1,4 +1,10 @@
-import styled from 'styled-components'
+/*
+ *
+ * HomePageWrapper.js
+ *
+ */
+
+import styled from 'styled-components';
 
 export default styled.div`
   h1,h2 {
@@ -46,4 +52,4 @@ export default styled.div`
     vertical-align: top;
     width: 345px;
   }
-`
+`;

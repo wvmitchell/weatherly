@@ -109,15 +109,16 @@ ShallowWrapper {
       "_hostParent": null,
       "_instance": HomePage {
         "_reactInternalInstance": [Circular],
+        "componentDidMount": [Function],
         "context": Object {},
         "getTempExtremesString": [Function],
         "props": Object {
           "dispatch": [Function],
         },
         "refs": Object {},
+        "searchForLocation": [Function],
         "selectSuggestion": [Function],
         "state": null,
-        "submitLocation": [Function],
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],

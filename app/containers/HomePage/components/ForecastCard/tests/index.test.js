@@ -9,26 +9,26 @@ describe('<ForecastCard />', () => {
       txt: {
         forecastday: [
           { icon: 'some-name', icon_url: 'some-path' },
-        ]
+        ],
       },
       simple: {
         forecastday: [
           {
             date: {
               weekday: 'sunday',
-            }
+            },
           },
-        ]
-      }
-    }
+        ],
+      },
+    };
     const renderedComponent = shallow(
-      <ForecastCard 
-        forecast={mockForecast} 
+      <ForecastCard
+        forecast={mockForecast}
         day={0}
         getTempExtremesString={jest.fn()}
       />
-    )
+    );
 
-    expect(renderedComponent).toMatchSnapshot()
+    expect(renderedComponent).toMatchSnapshot();
   });
 });

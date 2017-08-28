@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
-import makeSelectHomePage, { 
-  makeSelectLocation, 
-  makeSelectConditions, 
+import makeSelectHomePage, {
+  makeSelectLocation,
+  makeSelectConditions,
   makeSelectForecast,
   makeSelectResults,
 } from '../selectors';
@@ -11,7 +11,7 @@ describe('makeSelectHomePageDomain', () => {
     homePage: {
       location: 'Denver - CO',
       conditions: {
-        temp: 'some-temp'
+        temp: 'some-temp',
       },
       forecast: {
         high: 'real high',
@@ -23,7 +23,7 @@ describe('makeSelectHomePageDomain', () => {
         },
       ],
     },
-  })
+  });
 
   describe('makeSelectHomePage', () => {
     const selector = makeSelectHomePage();
@@ -32,7 +32,7 @@ describe('makeSelectHomePageDomain', () => {
       const expected = {
         location: 'Denver - CO',
         conditions: {
-          temp: 'some-temp'
+          temp: 'some-temp',
         },
         forecast: {
           high: 'real high',
@@ -45,35 +45,35 @@ describe('makeSelectHomePageDomain', () => {
         ],
       };
 
-      expect(selector(mocked)).toEqual(expected)
+      expect(selector(mocked)).toEqual(expected);
     });
-  })
+  });
 
   describe('makeSelectLocation', () => {
     const selector = makeSelectLocation();
 
-    const expected = 'Denver - CO'
+    const expected = 'Denver - CO';
     expect(selector(mocked)).toEqual(expected);
-  })
+  });
 
   describe('makeSelectConditions', () => {
     const selector = makeSelectConditions();
 
     const expected = fromJS({ temp: 'some-temp' });
     expect(selector(mocked)).toEqual(expected);
-  })
+  });
 
   describe('makeSelectForecast', () => {
     const selector = makeSelectForecast();
 
     const expected = fromJS({ high: 'real high', low: 'very low' });
     expect(selector(mocked)).toEqual(expected);
-  })
+  });
 
   describe('makeSelectResults', () => {
     const selector = makeSelectResults();
 
-    const expected = fromJS([0: { name: 'some-place' }])
-    expect(selector(mocked)).toEqual(expected)
-  })
+    const expected = fromJS([0: { name: 'some-place' }]);
+    expect(selector(mocked)).toEqual(expected);
+  });
 });

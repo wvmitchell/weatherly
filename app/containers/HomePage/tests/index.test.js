@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 import { HomePage } from '../index';
 
 describe('<HomePage />', () => {
-  const dispatch = jest.fn()
+  const dispatch = jest.fn();
 
   it('Expect it to match snapshot', () => {
-    const renderedComponent = shallow(<HomePage dispatch={dispatch} />)
-    expect(renderedComponent).toMatchSnapshot()
+    const renderedComponent = shallow(<HomePage dispatch={dispatch} />);
+    expect(renderedComponent).toMatchSnapshot();
   });
 });

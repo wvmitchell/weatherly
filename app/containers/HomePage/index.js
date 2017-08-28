@@ -9,9 +9,9 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
-import { cookie } from 'cookie_js'
+import { cookie } from 'cookie_js';
 import {
-  AppBar, 
+  AppBar,
   Toolbar,
   Typography,
   TextField,
@@ -20,7 +20,6 @@ import {
 } from 'material-ui';
 import Card, {
   CardHeader,
-  CardMedia,
   CardContent,
 } from 'material-ui/Card';
 import ForecastCard from './components/ForecastCard';
@@ -44,39 +43,39 @@ import {
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   componentDidMount = () => {
-    const location = cookie.get('location')
-    this.props.dispatch(addLocation(location))
-    this.props.submitLocation()
-  }
-
-  searchForLocation = (event) => {
-    event.preventDefault()
-    this.props.clearConditions()
-    this.props.clearForecast()
-    this.props.submitLocation()
-  }
-
-  selectSuggestion = (event) => {
-    this.props.dispatch(addLocation(event.target.value))
-    this.props.clearQueryResults()
-    this.props.clearConditions()
-    this.props.clearForecast()
-    this.props.submitLocation()
+    const location = cookie.get('location');
+    this.props.dispatch(addLocation(location));
+    this.props.submitLocation();
   }
 
   getTempExtremesString = (forecast, day) => {
-    const high = forecast.simple.forecastday[day].high
-    const low = forecast.simple.forecastday[day].low
-    const highF = high.fahrenheit
-    const highC = high.celsius
-    const lowF = low.fahrenheit
-    const lowC = low.celsius
-    return `High: ${highF} F (${highC} C) / Low: ${lowF} F (${lowC} C)`
+    const high = forecast.simple.forecastday[day].high;
+    const low = forecast.simple.forecastday[day].low;
+    const highF = high.fahrenheit;
+    const highC = high.celsius;
+    const lowF = low.fahrenheit;
+    const lowC = low.celsius;
+    return `High: ${highF} F (${highC} C) / Low: ${lowF} F (${lowC} C)`;
+  }
+
+  searchForLocation = (event) => {
+    event.preventDefault();
+    this.props.clearConditions();
+    this.props.clearForecast();
+    this.props.submitLocation();
+  }
+
+  selectSuggestion = (event) => {
+    this.props.dispatch(addLocation(event.target.value));
+    this.props.clearQueryResults();
+    this.props.clearConditions();
+    this.props.clearForecast();
+    this.props.submitLocation();
   }
 
   render() {
     if (this.props.location) {
-      cookie.set({ location: this.props.location })
+      cookie.set({ location: this.props.location });
     }
 
     return (
@@ -95,10 +94,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         <Typography type="display3" component="h1">
           <FormattedMessage {...messages.header} />
         </Typography>
-        <form onSubmit={ this.searchForLocation }>
+        <form onSubmit={this.searchForLocation}>
           <TextField
             label="Good question, let's see"
-            onChange={ this.props.addLocation }
+            onChange={this.props.addLocation}
           />
           <Button raised color="accent" type="submit">
             Go
@@ -109,18 +108,18 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             <Typography type="display2" component="h2">
               <FormattedMessage {...messages.notFound} />
             </Typography>
-            <div className='location-options'>
+            <div className="location-options">
               { this.props.results.map((result) => (
-                  <Button
-                    raised
-                    color="primary"
-                    onClick={this.selectSuggestion}
-                    key={result.l}
-                    value={result.l}
-                  >
-                    {`${result.city} ${result.state}, ${result.country_name}`}
-                  </Button>
-                ))
+                <Button
+                  raised
+                  color="primary"
+                  onClick={this.selectSuggestion}
+                  key={result.l}
+                  value={result.l}
+                >
+                  {`${result.city} ${result.state}, ${result.country_name}`}
+                </Button>)
+                )
               }
             </div>
           </div>
@@ -130,9 +129,9 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             <Card className="todays-weather">
               <CardHeader
                 avatar={
-                  <Avatar 
-                    alt={this.props.forecast.txt.forecastday[0].icon} 
-                    src={this.props.forecast.txt.forecastday[0].icon_url} 
+                  <Avatar
+                    alt={this.props.forecast.txt.forecastday[0].icon}
+                    src={this.props.forecast.txt.forecastday[0].icon_url}
                   />
                 }
                 title={this.props.conditions.display_location.full}
@@ -165,7 +164,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             <Typography type="display2" component="h2">
               <FormattedMessage {...messages.secondHeader} />
             </Typography>
-            <div className='three-day-forecast'>
+            <div className="three-day-forecast">
               <ForecastCard
                 forecast={this.props.forecast}
                 getTempExtremesString={this.getTempExtremesString}
@@ -191,6 +190,15 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 
 HomePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  forecast: PropTypes.object,
+  conditions: PropTypes.object,
+  results: PropTypes.object,
+  addLocation: PropTypes.func,
+  submitLocation: PropTypes.func,
+  clearForecast: PropTypes.func,
+  clearConditions: PropTypes.func,
+  clearQueryResults: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
